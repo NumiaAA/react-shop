@@ -1,7 +1,9 @@
-function Search() {
+function Search({ searchValue, onChange }) {
   return (
     <div className="mb-20 d-flex align-center mb-40 justify-between">
-      <h1>Все кроссовки</h1>
+      <h1>
+        {searchValue ? `Поиск по запросу: ${searchValue}` : "Все кроссовки"}
+      </h1>
       <div className="search-block d-flex align-center">
         <img
           className="d-block"
@@ -10,7 +12,12 @@ function Search() {
           src="/img/search.svg"
           alt="search"
         />
-        <input type="search" placeholder="поиск.." />
+        <input
+          value={searchValue}
+          onChange={onChange}
+          type="search"
+          placeholder="поиск.."
+        />
       </div>
     </div>
   );
